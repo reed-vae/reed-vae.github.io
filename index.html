@@ -23,7 +23,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/bulma-slider.min.js"></script> TODO: Re-enable when you want the slider -->
   <script src="./static/js/index.js"></script>
 </head>
 <body>
@@ -68,7 +68,7 @@
   </div>
 </nav> -->
 
-
+<!-- Title. -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -139,59 +139,22 @@
   </div>
 </section>
 
+<!-- Teaser. -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/teaser.png" #TODO
-           alt="Teaser image">
       <h2 class="subtitle has-text-centered">
-          <span class="dnerf">REED-VAE</span> preserves image quality over multiple editing iterations, allowing users to perform multiple edit operations using a combination of frameworks and techniques.
+        <span class="dnerf">REED-VAE</span> preserves image quality over multiple editing iterations, allowing users to perform multiple edit operations using a combination of frameworks and techniques.
       </h2>
+      <img src="./static/images/teaser.png"
+           alt="Teaser image">
     </div>
   </div>
 </section>
 
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <img src="./static/sessions/img1.png"
-        </div>
-        <div class="item item-chair-tp">
-          <img src="./static/sessions/img2.png"
-        </div>
-        <div class="item item-shiba">
-          <img src="./static/sessions/img3.png"
-        </div>
-        <div class="item item-fullbody">
-          <img src="./static/sessions/img4.png"
-        </div>
-        <div class="item item-blueshirt">
-          <img src="./static/sessions/img5.png"
-        </div>
-        <div class="item item-mask">
-          <img src="./static/sessions/img6.png"
-        </div>
-        <div class="item item-coffee">
-          <img src="./static/sessions/img7.png"
-        </div>
-        <div class="item item-toby">
-          <img src="./static/sessions/img8.png"
-        </div>
-        <div class="item item-toby">
-          <img src="./static/sessions/img9.png"
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
+<!-- Abstract. -->
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -199,15 +162,9 @@
           <p>
             While latent diffusion models achieve impressive image editing results, their application to iterative editing of the same image is severely restricted. 
             When trying to apply consecutive edit operations using current models, they accumulate artifacts and noise due to repeated transitions between pixel and latent spaces.
-          </p>
-          <p>
             Some methods have attempted to address this limitation by performing the entire edit chain within the latent space, sacrificing flexibility by supporting only a limited, predetermined set of diffusion editing operations.
-          </p>
-          <p>
             We present a <u>re</u>-<u>e</u>ncode <u>d</u>ecode (REED) training scheme for variational autoencoders (VAEs), which promotes image quality preservation even after many iterations.
             Our work enables <em>multi-method</em> iterative image editing: users can perform a variety of iterative edit operations, with each operation building on the output of the previous one using both diffusion based operations and conventional editing techniques.
-          </p>
-          <p>
             We demonstrate the advantage of REED-VAE across a range of image editing scenarios, including text-based and mask-based editing frameworks.
             In addition, we show how REED-VAE enhances the overall editability of images, increasing the likelihood of successful and precise edit operations.
             We hope that this work will serve as a benchmark for the newly introduced task of multi-method image editing.
@@ -215,7 +172,207 @@
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+    <!-- put these side-by-side -->
+    <!-- <div style="display: flex; gap: 20px;">
+      <img src="./static/images/steps/taj/output.gif" alt="Taj">
+      <img src="./static/images/steps/boat/output.gif" alt="Boat">
+    </div> -->
+  </div>
+</section>
+
+<!-- Method. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Methods Section content -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose REED (Re-Encode Decode Training), a novel training scheme for VAEs designed to maintain image quality and editability over iterative editing steps. 
+            To promote robustness to repeated encode-decode operations in iterative edits, we train the model using iterative training and dynamic incrementation, gradually increasing the number of steps during training. 
+            We also introduce a first-step loss, which computes the training loss between the first edit step and the final edit step, rather than between the original image and the final edit step.
+            Our loss function combines MSE, perceptual loss (LPIPS), and KL divergence to balance reconstruction accuracy and latent space regularization. 
+            This approach significantly enhances stability in diffusion-based image editing, preserving fine details and structures across multiple iterations.
+            REED-VAE can be easily plugged in to any diffusion-based editing framework, and we demonstrate its use in a variety of iterative edit operations, including text-based, mask-based, and subject-guided editing.
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Results Section -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Multi-Method Editing</h2>
+        <div class="content">
+          <p>
+            We evaluate REED-VAE across a variety of image editing scenarios:
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!-- Results Carousel - Full Width -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="landscape-carousel" class="carousel results-carousel">
+        <!-- First landscape image -->
+        <div class="item">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="card">
+                <div class="card-content has-text-centered">
+                  <p class="title is-5">Text-Guided Editing</p>
+                </div>
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/edit_sessions/text_guided.png" alt="Landscape 1" style="width: 100%; height: auto;">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second landscape image -->
+        <div class="item">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="card">
+                <div class="card-content has-text-centered">
+                  <p class="title is-5">Subject-Guided Editing</p>
+                </div>
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/edit_sessions/subject_guided.png" alt="Landscape 2" style="width: 100%; height: auto;">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third landscape image -->
+        <div class="item">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="card">
+                <div class="card-content has-text-centered">
+                  <p class="title is-5">Mask-Guided Editing</p>
+                </div>
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/edit_sessions/mask_guided.png" alt="Landscape 3" style="width: 100%; height: auto;">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fourth landscape image -->
+        <div class="item">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="card">
+                <div class="card-content has-text-centered">
+                  <p class="title is-5">Multi-Method Editing</p>
+                </div>
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/edit_sessions/multi_method.png" alt="Landscape 4" style="width: 100%; height: auto;">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title ">Iterative Encode/Decode Cycles</h2>
+          <div class="content caption-box mb-4">
+            We evaluate the effects of iterative encode/decode cycles on image quality and editability, even without a diffusion model in the pipeline.
+            The Vanilla-VAE (left) accumulates artifacts and exhibits significant distortion very quickly throughout encode-decode iterations.
+            The images lose their distinct shapes and edges, appearing more globular and less defined with a noticeable shift in colors.
+            REED-VAE (right) produces successive images that are robust to such artifacts and distortions.
+            The images retain their shape, color, and surface details, demonstrating remarkably high fidelity to the original image.
+          </div>
+        </div>
+      </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <!-- Eiffel -->
+        <div class="item">
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/steps/eiffel_vanilla/output.gif" alt="Vanilla Eiffel">
+                  </figure>
+                </div>
+                <div class="card-content has-text-centered">
+                  <p class="title is-5">Vanilla-VAE</p>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/steps/eiffel_reed/output.gif" alt="REED Eiffel">
+                  </figure>
+                </div>
+                <div class="card-content has-text-centered">
+                  <p class="title is-5">REED-VAE</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taj -->
+        <div class="item">
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/steps/taj_vanilla/output.gif" alt="Vanilla Taj">
+                  </figure>
+                </div>
+                <div class="card-content has-text-centered">
+                  <p class="title is-5">Vanilla-VAE</p>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image">
+                    <img src="./static/images/steps/taj_reed/output.gif" alt="REED Taj">
+                  </figure>
+                </div>
+                <div class="card-content has-text-centered">
+                  <p class="title is-5"><strong>REED-VAE</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
