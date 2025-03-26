@@ -155,10 +155,10 @@ body {
   border-radius: 5px;
 }
 
-.carousel .card-image {
+/* .carousel .card-image {
     padding: 0;
     margin: 0;
-}
+} */
 
 .carousel .card {
     margin: 0;
@@ -183,22 +183,16 @@ body {
     width: 100%;
 }
 
-.carousel .column {
+/* .carousel .column {
     padding: 0;
     display: flex;
     justify-content: center;
-}
+} */
 
 .carousel {
     min-height: 500px;
     position: relative;
     margin-top: 1rem;
-}
-
-.is-loading {
-    /* background: rgba(255, 255, 255, 0.8); */
-    padding: 10px;
-    /* border-radius: 4px; */
 }
 
 /* Landscape carousel specific styles */
@@ -224,65 +218,19 @@ body {
     padding: 0;
 }
 
-.card-content {
+/* .card-content {
     padding: 0.25rem;
-}
+} */
 
 .hero-body {
-    padding: 0.5rem 1.5rem;
-}
-
-.title.is-3 {
-    margin-bottom: 0.5rem !important;
-}
-
-.section:has(+ .hero.is-small) {
-    padding-bottom: 0;
-}
-
-.hero.is-small .hero-body {
-    padding-top: 0;
-}
-
-.content p:last-child {
-    margin-bottom: 0;
-}
-
-.hero.is-small {
-    padding: 0;
-    margin: 0;
-}
-
-.hero.is-small + .hero.is-small {
-    padding-top: 0;
-}
-
-.caption-box {
-    margin: 0.5rem auto 1rem;
-    max-width: 90%;
-}
-
-.section {
-    padding: 1.5rem 1.5rem 0;
-}
-
-.columns {
-    margin: 0;
-}
-
-.column {
-    padding: 0.5rem;
-}
-
-.section + .hero.is-small {
-    margin-top: -3rem;
+  padding-top: 0;
+  padding-bottom: 3rem;
 }
 
 /* Adjust container spacing */
-.container {
-    padding-top: 0;
-    padding-bottom: 0;
-}
+/* .container {
+    padding: 1rem 0;
+} */ */
 
 /* Force carousel pagination dots to appear below images */
 .carousel .slider-pagination {
