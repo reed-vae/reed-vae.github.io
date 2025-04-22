@@ -47,8 +47,12 @@ function resetAllGifsInCarousel(carousel) {
       newGif.style.cssText = gif.style.cssText;
       
       newGif.onload = () => {
-        gif.parentNode.replaceChild(newGif, gif);
-        console.log('GIF reset completed:', newGif.src);
+        if (gif.parentNode) {
+          gif.parentNode.replaceChild(newGif, gif);
+          console.log('GIF reset completed:', newGif.src);
+        } else {
+          console.error('Parent node is null, cannot replace GIF');
+        }
       };
       
       newGif.src = originalSrc.split('?')[0] + '?t=' + new Date().getTime();
