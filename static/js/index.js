@@ -13,9 +13,14 @@ $(document).ready(function () {
   });
 
   carousels.forEach((carousel) => {
-    carousel.on('before:show', () => {
-      console.log('Before show event triggered - preparing to reset GIFs');
-      resetAllGifsInCarousel(carousel);
+    let lastSlideIndex = carousel.state.next;
+    
+    carousel.on('before:show', (newIndex) => {
+      if (newIndex !== lastSlideIndex) {
+        console.log('Slide changed - resetting GIFs');
+        resetAllGifsInCarousel(carousel);
+        lastSlideIndex = newIndex;
+      }
     });
     
     const paginationItems = carousel.element.querySelectorAll('.slider-pagination-item');
@@ -30,7 +35,7 @@ $(document).ready(function () {
   setTimeout(() => {
     console.log('Initial reset of GIFs on page load');
     carousels.forEach(carousel => resetAllGifsInCarousel(carousel));
-  }, 100);
+  }, 500);
 });
 
 function resetAllGifsInCarousel(carousel) {
