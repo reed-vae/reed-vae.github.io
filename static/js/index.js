@@ -1,78 +1,57 @@
-window.HELP_IMPROVE_VIDEOJS = false;
-
-var INTERP_BASE = "./static/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
-
-var interp_images = [];
-function preloadInterpolationImages() {
-  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
-    interp_images[i] = new Image();
-    interp_images[i].src = path;
-  }
-}
-
-function setInterpolationImage(i) {
-  var image = interp_images[i];
-  image.ondragstart = function() { return false; };
-  image.oncontextmenu = function() { return false; };
-  $('#interpolation-image-wrapper').empty().append(image);
-}
-
-
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+$(document).ready(function () {
+  $(".navbar-burger").click(function () {
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
-
     });
 
-    var options = {
+  const carousels = bulmaCarousel.attach('.carousel', {
 			slidesToScroll: 1,
 			slidesToShow: 1,
-			loop: true,
 			infinite: true,
 			autoplay: false,
-			autoplaySpeed: 3000,
-    }
+    loop: true,
+  });
 
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
-    }
-
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
-    }
-
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
-    preloadInterpolationImages();
-
-    $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
+  carousels.forEach((carousel) => {
+    carousel.on('before:show', () => {
+      console.log('Before show event triggered - preparing to reset GIFs');
+      resetAllGifsInCarousel(carousel);
     });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+    
+    const paginationItems = carousel.element.querySelectorAll('.slider-pagination-item');
+    paginationItems.forEach(item => {
+      item.addEventListener('click', () => {
+        console.log('Pagination item clicked - resetting GIFs');
+        resetAllGifsInCarousel(carousel);
+      });
+    });
+  });
+  
+  setTimeout(() => {
+    console.log('Initial reset of GIFs on page load');
+    carousels.forEach(carousel => resetAllGifsInCarousel(carousel));
+  }, 100);
+});
 
-    bulmaSlider.attach();
-
-})
+function resetAllGifsInCarousel(carousel) {
+  const slides = carousel.element.querySelectorAll('.item');
+  
+  slides.forEach(slide => {
+    const gifs = slide.querySelectorAll('img.resettable-gif');
+    console.log(`Found ${gifs.length} GIFs to reset in slide`);
+    
+    gifs.forEach(gif => {
+      const originalSrc = gif.src;
+      const newGif = new Image();
+      newGif.className = gif.className;
+      newGif.style.cssText = gif.style.cssText;
+      
+      newGif.onload = () => {
+        gif.parentNode.replaceChild(newGif, gif);
+        console.log('GIF reset completed:', newGif.src);
+      };
+      
+      newGif.src = originalSrc.split('?')[0] + '?t=' + new Date().getTime();
+    });
+  });
+}

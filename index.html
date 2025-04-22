@@ -23,50 +23,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
-  <!-- <script src="./static/js/bulma-slider.min.js"></script> TODO: Re-enable when you want the slider -->
+  <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
 <body>
-
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
 
 <!-- Title. -->
 <section class="hero">
@@ -93,7 +53,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="./static/REED_arxiv.pdf" #TODO
+                <a href="./static/REED_arxiv.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -102,7 +62,7 @@
                 </a>
               </span>
               <!-- arxiv Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="paper-pdf" #TODO
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -110,10 +70,10 @@
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="code-link" #TODO
+                <a href="https://github.com/galmog/REED-VAE"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -123,7 +83,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="data-link" #TODO
+                <a href="https://drive.google.com/drive/folders/1G5KGDnDdw-Ecd2Y_2M4qogHlSMATa5IN?usp=sharing"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
@@ -172,35 +132,8 @@
         </div>
       </div>
     </div>
-    <!-- put these side-by-side -->
-    <!-- <div style="display: flex; gap: 20px;">
-      <img src="./static/images/steps/taj/output.gif" alt="Taj">
-      <img src="./static/images/steps/boat/output.gif" alt="Boat">
-    </div> -->
   </div>
 </section>
-
-<!-- Method. -->
-<!-- <section class="section">
-  <div class="container is-max-desktop"> -->
-    <!-- Methods Section content -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
-        <div class="content has-text-justified">
-          <p>
-            We propose REED (Re-Encode Decode Training), a novel training scheme for VAEs designed to maintain image quality and editability over iterative editing steps. 
-            To promote robustness to repeated encode-decode operations in iterative edits, we train the model using iterative training and dynamic incrementation, gradually increasing the number of steps during training. 
-            We also introduce a first-step loss, which computes the training loss between the first edit step and the final edit step, rather than between the original image and the final edit step.
-            Our loss function combines MSE, perceptual loss (LPIPS), and KL divergence to balance reconstruction accuracy and latent space regularization. 
-            This approach significantly enhances stability in diffusion-based image editing, preserving fine details and structures across multiple iterations.
-            REED-VAE can be easily plugged in to any diffusion-based editing framework, and we demonstrate its use in a variety of iterative edit operations, including text-based, mask-based, and subject-guided editing.
-          </p>
-        </div>
-      </div>
-    </div> -->
-  <!-- </div>
-</section> -->
 
 <!-- Results Section - Multi-Method Editing -->
 <section class="hero">
@@ -212,7 +145,25 @@
           We evaluate REED-VAE across a variety of image editing scenarios:
         </p>
       <div id="landscape-carousel" class="carousel results-carousel">
-        <!-- First landscape image -->
+        <!-- Subject-Guided Editing -->
+        <div class="item">
+          <div class="columns is-centered">
+            <div class="column is-8">
+                      <div class="card">
+                        <div class="card-content has-text-centered">
+                          <p class="title is-5">Subject-Guided Editing</p>
+                        </div>
+                        <div class="card-image">
+                          <figure class="image">
+                            <img src="./static/images/edit_sessions/subject_guided.png" alt="Landscape 2" style="width: 100%; height: auto;">
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        <!-- Text-Guided Editing -->
         <div class="item">
           <div class="columns is-centered">
             <div class="column is-8">
@@ -230,25 +181,9 @@
           </div>
         </div>
 
-        <!-- Second landscape image -->
-        <div class="item">
-          <div class="columns is-centered">
-            <div class="column is-8">
-              <div class="card">
-                <div class="card-content has-text-centered">
-                  <p class="title is-5">Subject-Guided Editing</p>
-                </div>
-                <div class="card-image">
-                  <figure class="image">
-                    <img src="./static/images/edit_sessions/subject_guided.png" alt="Landscape 2" style="width: 100%; height: auto;">
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Third landscape image -->
+
+        <!-- Mask-Guided Editing -->
         <div class="item">
           <div class="columns is-centered">
             <div class="column is-8">
@@ -266,7 +201,7 @@
           </div>
         </div>
 
-        <!-- Fourth landscape image -->
+        <!-- Multi-Method Editing -->
         <div class="item">
           <div class="columns is-centered">
             <div class="column is-8">
@@ -300,6 +235,7 @@
             The images lose their distinct shapes and edges, appearing more globular and less defined with a noticeable shift in colors.
             REED-VAE (right) produces successive images that are robust to such artifacts and distortions.
             The images retain their shape, color, and surface details, demonstrating remarkably high fidelity to the original image.
+            We display the progression of <em>n</em>=25 iterative encode/decode cycles for both models.
           </div>
         </div>
       </div>
@@ -312,7 +248,7 @@
               <div class="card">
                 <div class="card-image">
                   <figure class="image">
-                    <img src="./static/images/steps/eiffel_vanilla/output.gif" alt="Vanilla Eiffel">
+                    <img class="resettable-gif" src="./static/images/steps/eiffel_vanilla/output.gif" alt="Vanilla Eiffel">
                   </figure>
                 </div>
                 <div class="card-content has-text-centered">
@@ -324,13 +260,19 @@
               <div class="card">
                 <div class="card-image">
                   <figure class="image">
-                    <img src="./static/images/steps/eiffel_reed/output.gif" alt="REED Eiffel">
+                    <img class="resettable-gif" src="./static/images/steps/eiffel_reed/output.gif" alt="REED Eiffel">
                   </figure>
                 </div>
                 <div class="card-content has-text-centered">
-                  <p class="title is-5">REED-VAE</p>
+                  <p class="title is-5"><strong>REED-VAE</strong></p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <img class="progress-indicator resettable-gif" src="./static/images/progress_bar.gif" alt="Progress">
+              <span class="counter">1</span>
             </div>
           </div>
         </div>
@@ -342,7 +284,7 @@
               <div class="card">
                 <div class="card-image">
                   <figure class="image">
-                    <img src="./static/images/steps/taj_vanilla/output.gif" alt="Vanilla Taj">
+                    <img class="resettable-gif" src="./static/images/steps/taj_vanilla/output.gif" alt="Vanilla Taj">
                   </figure>
                 </div>
                 <div class="card-content has-text-centered">
@@ -354,13 +296,19 @@
               <div class="card">
                 <div class="card-image">
                   <figure class="image">
-                    <img src="./static/images/steps/taj_reed/output.gif" alt="REED Taj">
+                    <img class="resettable-gif" src="./static/images/steps/taj_reed/output.gif" alt="REED Taj">
                   </figure>
                 </div>
                 <div class="card-content has-text-centered">
                   <p class="title is-5"><strong>REED-VAE</strong></p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <img class="progress-indicator resettable-gif" src="./static/images/progress_bar.gif" alt="Progress">
+              <span class="counter">1</span>
             </div>
           </div>
         </div>
@@ -385,11 +333,11 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link" #TODO
-         href="./static/reed_paper.pdf">
+      <a class="icon-link"
+         href="./static/REED_arxiv.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/reed-vae" #TODO class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/galmog/REED-VAE" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>

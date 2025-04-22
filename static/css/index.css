@@ -155,47 +155,55 @@ body {
   border-radius: 5px;
 }
 
-/* .carousel .card-image {
-    padding: 0;
-    margin: 0;
-} */
-
-.carousel .card {
-    margin: 0;
-    width: fit-content;
-    display: inline-block;
-}
-
-.carousel .image {
-    margin: 0;
-    padding: 0;
+.carousel {
+  min-height: 400px;
+  position: relative;
+  margin-top: 1rem;
 }
 
 .carousel .item {
-    background: white;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.carousel .card {
+  margin: 0;
+  background: white;
+  width: 100%;
+}
+
+.carousel .card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.carousel .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .carousel .columns {
-    margin: 0;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-/* .carousel .column {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-} */
-
-.carousel {
-    min-height: 500px;
-    position: relative;
-    margin-top: 1rem;
+.carousel .column {
+  padding: 0.75rem;
 }
 
-/* Landscape carousel specific styles */
 #landscape-carousel .card-image {
     padding: 0;
     background: white;
@@ -218,51 +226,114 @@ body {
     padding: 0;
 }
 
-/* .card-content {
-    padding: 0.25rem;
-} */
-
 .hero-body {
-  padding-top: 0;
+  padding-top: 2rem;
   padding-bottom: 3rem;
 }
 
-/* Adjust container spacing */
-/* .container {
-    padding: 1rem 0;
-} */ */
+.hero.is-small .hero-body {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
 
-/* Force carousel pagination dots to appear below images */
+section.hero:first-of-type .hero-body {
+  padding-top: 3rem;
+}
+
 .carousel .slider-pagination {
   position: static !important;
   padding-top: 1rem !important;
   margin-top: 0.5rem !important;
 }
 
-/* Make pagination dots black */
 .carousel .slider-pagination .slider-page {
   background-color: #000 !important;
   opacity: 0.3 !important;
 }
 
-/* Make active pagination dot more visible */
 .carousel .slider-pagination .slider-page.is-active {
   background-color: #000 !important;
   opacity: 1 !important;
 }
 
-/* Add bottom space to carousel to accommodate dots */
 .carousel {
   margin-bottom: 2rem !important;
 }
 
-/* Ensure carousel items don't crowd the pagination */
 .carousel .item {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 2.5rem !important;
 }
 
-/* Make sure slider navigation doesn't overlap with content */
 .carousel .slider-navigation-previous,
 .carousel .slider-navigation-next {
-  z-index: 10 !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  z-index: 10;
+}
+
+.card-image figure {
+  position: relative;
+}
+
+.progress-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.progress-bar img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.progress-bar .counter {
+  position: absolute;
+  color: black;
+  font-weight: bold;
+  font-size: 0.9em;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content .title {
+  margin-bottom: 0rem !important;
+}
+
+.resettable-gif {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.carousel .image img {
+  object-fit: contain;
 }
