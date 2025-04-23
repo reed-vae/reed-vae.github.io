@@ -287,45 +287,29 @@ section.hero:first-of-type .hero-body {
 .progress-container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 0.5rem 0;
   margin-top: 0rem;
   margin-bottom: 1rem;
 }
 
-.progress-bar {
-  position: relative;
+.progress-container .card {
   width: 300px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
 }
 
-.progress-bar img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.progress-bar .counter {
-  position: absolute;
+.progress-container .counter {
+  margin-top: 5px;
   color: black;
   font-weight: bold;
   font-size: 0.9em;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-.card-content {
-  padding: 1rem;
-}
-
-.card-content .title {
-  margin-bottom: 0rem !important;
+.progress-container .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .resettable-gif {
